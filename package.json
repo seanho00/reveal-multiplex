@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "reveal.js multiplex server",
   "homepage": "http://lab.hakim.se/reveal-js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
