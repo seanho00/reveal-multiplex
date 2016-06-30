@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "reveal.js multiplex server",
   "homepage": "http://lab.hakim.se/reveal-js",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "engines": {
-    "node": "~4.1.1"
+    "node": "~5.11.1"
   },
   "dependencies": {
     "express": "~4.13.3",
