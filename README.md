@@ -11,9 +11,11 @@ Inspired by @ryanj [gist-reveal](http://gist-reveal.it/).
 
 ## Install on Openshift:
 
+[![Launch on OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=nodejs-0.10&initial_git_url=https://github.com/seanho00/reveal-multiplex.git&name=multiplex)
+
 ## Get token for each presentation:
 * `http://multiplex-MYNAME.rhcloud.com/token`
-* Say, e.g., the id is 000SOCKETID000 and the secret is 000SECRET000
+* Say, e.g., the id is `000SOCKETID000` and the secret is `000SECRET000`
 
 ## Reveal.js config:
 Client config, I host on GitHub Pages:
@@ -31,4 +33,5 @@ Reveal.initialize({
 `http://MYNAME.github.io/MYSLIDES/?secret=000SECRET000`
 
 # Examples
-http://seanho00.github.io/
+https://github.com/seanho00/boast-of-weakness/
+http://mp-seanho00.rhcloud.com/
