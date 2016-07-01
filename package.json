@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "reveal.js multiplex server",
   "homepage": "http://lab.hakim.se/reveal-js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seanho00/reveal-multiplex.git"
+  },
   "main": "server.js",
   "scripts": {
     "start": "supervisor server.js"
