@@ -1,5 +1,7 @@
 # Multiplex server for Reveal.js
 
+[![Node dependencies](https://david-dm.org/seanho00/reveal-multiplex.svg)](https://david-dm.org/seanho00/reveal-multiplex)
+
 Essentially, Hakim's original multiplex plugin, stripped down
 to just the pub/sub Socket.io server, without static hosting
 of the slides.
