@@ -5,7 +5,7 @@
   "homepage": "http://lab.hakim.se/reveal-js",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "supervisor server.js"
   },
   "engines": {
     "node": "~5.11.1"
