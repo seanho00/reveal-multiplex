@@ -44,7 +44,9 @@ app.get("/", function(req, res) {
 app.get("/token", function(req,res) {
         var ts = new Date().getTime();
         var rand = Math.floor(Math.random()*9999999);
-        var secret = ts.toString() + rand.toString();
+        var origsecret = ts.toString() + rand.toString();
+        var cipher = crypto.createCipher('blowfish', origsecret);
+	var secret = cipher.final('hex');
         res.send({secret: secret, socketId: createHash(secret)});
 });
 
