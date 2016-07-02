@@ -13,7 +13,7 @@ Inspired by @ryanj [gist-reveal](http://gist-reveal.it/).
 
 ## Install on OpenShift:
 
-[![Launch on OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=https%3A%2F%2Fraw.githubusercontent.com%2Ficflorescu%2Fopenshift-cartridge-nodejs%2Fmaster%2Fmetadata%2Fmanifest.yml&initial_git_url=https%3A%2F%2Fgithub.com%2Fseanho00%2Freveal-multiplex.git)
+[![Launch on OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=https%3A%2F%2Fraw.githubusercontent.com%2Ficflorescu%2Fopenshift-cartridge-nodejs%2Fmaster%2Fmetadata%2Fmanifest.yml&initial_git_url=https%3A%2F%2Fgithub.com%2Fseanho00%2Freveal-multiplex.git&name=multiplex)
 
 By default, the Socket.io server will be at
 `http://multiplex-MYNAME.rhcloud.com:8080/`
