@@ -59,5 +59,5 @@ the the multiplex plugin's 'secret' config option, and sent to the socket.io
 server.
 
 # Examples
-* http://seanho00.github.io/reveal-multiplex/
+* http://reveal-skel.seanho.com/
 * http://mp-seanho00.rhcloud.com/
