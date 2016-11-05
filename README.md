@@ -61,4 +61,4 @@ server.
 # Examples
 * http://reveal-skel.seanho.com/
   and [master view](http://reveal-skel.seanho.com/?s=45ba034647cea150)
-* http://mp-seanho00.rhcloud.com/
+* http://mp.seanho.com/
