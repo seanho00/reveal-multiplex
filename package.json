@@ -1,22 +1,16 @@
 {
-  "name": "reveal-js-multiplex",
-  "version": "1.1.0",
+  "name": "reveal-multiplex",
+  "version": "1.1.1",
   "description": "reveal.js multiplex server",
-  "homepage": "http://lab.hakim.se/reveal-js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/seanho00/reveal-multiplex.git"
+  "repository": "seanho00/reveal-multiplex"
   },
   "main": "server.js",
   "scripts": {
     "start": "supervisor server.js"
   },
-  "engines": {
-    "node": "~5.11"
-  },
   "dependencies": {
-    "express": "~4.14",
-    "socket.io": "~1.4.8"
+    "express": "^5.0.0",
+    "socket.io": "^1.5.1"
   },
   "license": "MIT"
 }
