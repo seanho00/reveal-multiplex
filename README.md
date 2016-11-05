@@ -2,7 +2,7 @@
 
 [![Node dependencies](https://david-dm.org/seanho00/reveal-multiplex.svg)](https://david-dm.org/seanho00/reveal-multiplex)
 
-Essentially, @hakimel's original [multiplex plugin](), stripped down
+Essentially, @hakimel's original [multiplex plugin](https://github.com/hakimel/reveal.js/tree/master/plugin/multiplex), stripped down
 to just the pub/sub Socket.io server, without static hosting
 of the slides.
 
