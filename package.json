@@ -8,8 +8,8 @@
     "start": "supervisor server.js"
   },
   "dependencies": {
-    "express": "^4.14.0",
-    "socket.io": "^1.7.2"
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
   },
   "license": "MIT"
 }
