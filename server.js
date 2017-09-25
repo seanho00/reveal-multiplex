@@ -14,8 +14,8 @@ var server	= http.createServer(app);
 io = io(server);
 
 var opts = {
-	port: process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 1948,
-	addr: process.env.ADDR || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+	port: process.env.PORT || 8080,
+	addr: process.env.ADDR || '0.0.0.0'
 };
 
 io.on( 'connection', function( socket ) {
