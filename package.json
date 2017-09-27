@@ -1,12 +1,8 @@
 {
   "name": "reveal-multiplex",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "reveal.js multiplex server",
   "repository": "seanho00/reveal-multiplex",
-  "main": "server.js",
-  "scripts": {
-    "start": "supervisor server.js"
-  },
   "dependencies": {
     "express": "^5.0.0-alpha.6",
     "socket.io": "^2.0.3"
