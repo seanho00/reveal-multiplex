@@ -28,16 +28,23 @@ Inspired by @ryanj [gist-reveal](http://gist-reveal.it/).
 The route you created should have a long auto-generated hostname; e.g.,
 `multiplex-multiplex.7e14.starter-us-west-2.openshiftapps.com`.
 You can access the server from that URL.
+In the following, replace `MULTIPLEX_HOST` with that hostname.
 
-If you want to use your own custom domain (e.g., `mp.seanho.com`),
-create a CNAME (using your DNS provider's control panel)
+## Custom domains
+You may want to use your own custom domain (e.g., `mp.seanho.com`),
+instead of the long auto-generated hostname.
+
+Create a CNAME (using your DNS provider's control panel)
 pointing to the auto-generated hostname.
+
 You will also need to create another route in the OpenShift control panel
 (Applications &gt; Routes) using your custom domain.
 
+The SSL cert on OpenShift's edge router won't know about your custom domain,
+so you may want to consider using CloudFlare's SSL proxy.
+
 ## Get token for each presentation:
-* `https://MYHOST/token`, where `MYHOST` is either the auto-generated hostname above,
-  or your own custom domain that you've configured with a route
+* `https://MULTIPLEX_HOST/token`
 * Say, e.g., the secret is `000SECRET000`, and the SocketID is `000SOCKETID000`
 
 ## Reveal.js config:
@@ -47,14 +54,15 @@ with the rest of the Reveal.js config:
 ```js
 Reveal.initialize({
 	multiplex: {
-		url: 'https://MYHOST/',
+		url: 'https://MULTIPLEX_HOST/',
 		id: '000SOCKETID000',
 		secret: Reveal.getQueryHash().s || null
 	},
 	dependencies: [
         	{ src: 'https://cdn.socket.io/socket.io-2.0.3.js', async: true },
-        	{ src: 'plugin/multiplex/client.js', async: true },
-        	{ src: 'plugin/multiplex/master.js', async: true }
+        	{ src: Reveal.getQueryHash().s ?
+		  'plugin/multiplex/master.js' :
+		  'plugin/multiplex/client.js', async: true }
     ]
 })
 ```
@@ -70,6 +78,7 @@ the the multiplex plugin's 'secret' config option, and sent to the socket.io
 server.
 
 # Examples
-* http://reveal-skel.seanho.com/
+* [Sample presentation](http://reveal-skel.seanho.com/)
   and [master view](http://reveal-skel.seanho.com/?s=45ba034647cea150)
-* https://mp.seanho.com/
+* [socket.io server](https://mp.seanho.com/)
+
