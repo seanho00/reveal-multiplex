@@ -2,31 +2,42 @@
 
 [![Node dependencies](https://david-dm.org/seanho00/reveal-multiplex.svg)](https://david-dm.org/seanho00/reveal-multiplex)
 
-Essentially, @hakimel's original [multiplex plugin](https://github.com/hakimel/reveal.js/tree/master/plugin/multiplex), stripped down
-to just the pub/sub Socket.io server, without static hosting
-of the slides.
+Essentially, this is @hakimel's original 
+[multiplex plugin](https://github.com/hakimel/reveal.js/tree/master/plugin/multiplex),
+stripped down to just the pub/sub socket.io server,
+without static hosting of the slides.
 
-I point all my Reveal.js presentations to an OpenShift VM
-(free level) running this Socket.io service.
+I point all my Reveal.js presentations to an [OpenShift](https://openshift.com/) VM
+(free level) running this socket.io service.
 
 Inspired by @ryanj [gist-reveal](http://gist-reveal.it/).
 
 ## Install on OpenShift:
 
-[![Launch on OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=https%3A%2F%2Fraw.githubusercontent.com%2Ficflorescu%2Fopenshift-cartridge-nodejs%2Fmaster%2Fmetadata%2Fmanifest.yml&initial_git_url=https%3A%2F%2Fgithub.com%2Fseanho00%2Freveal-multiplex.git&name=multiplex)
++ [Sign up for a free OpenShift account](https://manage.openshift.com/)
++ Create a new project, e.g., `multiplex`
++ Add a new application: "Add to Project", and select "Browse Catalog"
++ Under "JavaScript", select "Node.js", latest version (6)
++ Fill in the app's Name (e.g., `multiplex`).
+  + Git repo is `https://github.com/seanho00/reveal-multiplex`
++ Select "advanced options", and under "Routing", tick "Secure Route"
++ Select the "Create" button at the bottom
+  + The webhook trigger doesn't apply since you don't have 
+    control over the source repo in this case.
 
-By default, the Socket.io server will be at
-`http://multiplex-MYNAME.rhcloud.com:8080/`
-and 
-`https://multiplex-MYNAME.rhcloud.com:8443/`
-where MYNAME is replaced by your OpenShift username.
+The route you created should have a long auto-generated hostname; e.g.,
+`multiplex-multiplex.7e14.starter-us-west-2.openshiftapps.com`.
+You can access the server from that URL.
 
-The ports are 8080 for HTTP and 8443 for HTTPS because OpenShift can't (yet)
-do the auto-upgrade to WebSockets on the normal ports.
-The normal ports are fine if you're just getting a new token.
+If you want to use your own custom domain (e.g., `mp.seanho.com`),
+create a CNAME (using your DNS provider's control panel)
+pointing to the auto-generated hostname.
+You will also need to create another route in the OpenShift control panel
+(Applications &gt; Routes) using your custom domain.
 
 ## Get token for each presentation:
-* `http://multiplex-MYNAME.rhcloud.com/token`
+* `https://MYHOST/token`, where `MYHOST` is either the auto-generated hostname above,
+  or your own custom domain that you've configured with a route
 * Say, e.g., the secret is `000SECRET000`, and the SocketID is `000SOCKETID000`
 
 ## Reveal.js config:
@@ -36,12 +47,12 @@ with the rest of the Reveal.js config:
 ```js
 Reveal.initialize({
 	multiplex: {
-		url: 'https://multiplex-MYNAME.rhcloud.com:8443/',
+		url: 'https://MYHOST/',
 		id: '000SOCKETID000',
 		secret: Reveal.getQueryHash().s || null
 	},
 	dependencies: [
-        	{ src: '//cdn.socket.io/socket.io-1.4.5.js', async: true },
+        	{ src: 'https://cdn.socket.io/socket.io-2.0.3.js', async: true },
         	{ src: 'plugin/multiplex/client.js', async: true },
         	{ src: 'plugin/multiplex/master.js', async: true }
     ]
@@ -61,4 +72,4 @@ server.
 # Examples
 * http://reveal-skel.seanho.com/
   and [master view](http://reveal-skel.seanho.com/?s=45ba034647cea150)
-* https://mp-seanho00.rhcloud.com/
+* https://mp.seanho.com/
