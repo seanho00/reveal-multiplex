@@ -19,8 +19,8 @@ var opts = {
 };
 
 var brown = '\033[33m',
-        green = '\033[32m',
-        reset = '\033[0m';
+	green = '\033[32m',
+	reset = '\033[0m';
 
 io.on( 'connection', function( socket ) {
 	socket.on('multiplex-statechanged', function(data) {
@@ -28,7 +28,7 @@ io.on( 'connection', function( socket ) {
 		if (createHash(data.secret) === data.socketId) {
 			data.secret = null;
 			socket.broadcast.emit(data.socketId, data);
-    console.log( brown + "reveal.js:" + reset + " master on " + green + data.socketId + reset );
+			console.log( brown + "reveal.js:" + reset + " master on " + green + data.socketId + reset );
 		};
 	});
 });
