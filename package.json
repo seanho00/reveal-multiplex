@@ -1,6 +1,6 @@
 {
   "name": "reveal-multiplex",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "reveal.js multiplex server",
   "repository": "seanho00/reveal-multiplex",
   "dependencies": {
