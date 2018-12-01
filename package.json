@@ -4,7 +4,7 @@
   "description": "reveal.js multiplex server",
   "repository": "seanho00/reveal-multiplex",
   "dependencies": {
-    "express": "^5.0.0-alpha.6",
+    "express": "^5.0.0-alpha.7",
     "socket.io": "^2.2.0"
   },
   "license": "MIT"
