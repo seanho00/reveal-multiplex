@@ -5,7 +5,7 @@
   "repository": "seanho00/reveal-multiplex",
   "dependencies": {
     "express": "^5.0.0-alpha.6",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.2.0"
   },
   "license": "MIT"
 }
