@@ -59,7 +59,7 @@ Reveal.initialize({
 		secret: Reveal.getQueryHash().s || null
 	},
 	dependencies: [
-        	{ src: 'https://cdn.socket.io/socket.io-2.0.3.js', async: true },
+        	{ src: 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js', async: true },
         	{ src: Reveal.getQueryHash().s ?
 		  'plugin/multiplex/master.js' :
 		  'plugin/multiplex/client.js', async: true }
