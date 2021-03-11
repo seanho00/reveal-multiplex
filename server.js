@@ -13,7 +13,7 @@ var server	= http.createServer(app);
 
 io = io(server, {
   cors: {
-    origin: "/\.(seanho|anchorlytics)\.com$/",
+    origin: /\.(seanho|anchorlytics)\.com$/,
     methods: "GET,POST"
   }
 });
