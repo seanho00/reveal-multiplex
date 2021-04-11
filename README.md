@@ -1,3 +1,6 @@
+# DEPRECATED
+The official [multiplex plugin](https://github.com/reveal/multiplex) does this now.
+
 # Multiplex server for Reveal.js
 
 [![Node dependencies](https://david-dm.org/seanho00/reveal-multiplex.svg)](https://david-dm.org/seanho00/reveal-multiplex)
