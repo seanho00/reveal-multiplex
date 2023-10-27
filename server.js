@@ -23,9 +23,9 @@ var opts = {
   addr: process.env.ADDR || '0.0.0.0'
 };
 
-var brown = '\033[33m';
-var green = '\033[32m';
-var reset = '\033[0m';
+// number of hex digits
+const SECRET_LENGTH = 16;
+const SOCKETID_LENGTH = 16;
 
 io.on( 'connection', function( socket ) {
   socket.on('multiplex-statechanged', function(data) {
@@ -55,21 +55,18 @@ app.get("/", function(req, res) {
 });
 
 app.get("/token", function(req,res) {
-  var ts = new Date().getTime();
-  var rand = Math.floor(Math.random()*9999999);
-  var origsecret = ts.toString() + rand.toString();
-  var cipher = crypto.createCipher('blowfish', origsecret);
-  var secret = cipher.final('hex');
+  var secret = crypto.randomBytes(SECRET_LENGTH/2).toString('hex');
   res.send({secret: secret, socketId: createHash(secret)});
 });
 
 var createHash = function(secret) {
-  var cipher = crypto.createCipher('blowfish', secret);
-  return(cipher.final('hex'));
+  const hash = crypto.createHash('sha256');
+  hash.update(secret, 'hex');
+  return(hash.digest('hex').slice(-SOCKETID_LENGTH));
 };
 
 // Actually listen
 server.listen( opts.port, opts.addr );
 
-console.log( brown + "reveal.js:" + reset + " multiplex at " + green + opts.addr + ":" + opts.port + reset );
+console.log("reveal.js: multiplex at " + opts.addr + ":" + opts.port);
 
