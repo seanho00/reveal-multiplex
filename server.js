@@ -33,8 +33,10 @@ io.on( 'connection', function( socket ) {
     if (createHash(data.secret) === data.socketId) {
       data.secret = null;
       socket.broadcast.emit(data.socketId, data);
-      console.log( brown + "reveal.js:" + reset + " master on " + green + data.socketId + reset );
-    };
+      console.log("reveal.js: master on " + data.socketId);
+    } else {
+      console.log("reveal.js: invalid secret " + data.secret + " for socket " + data.socketId);
+    }
   });
 });
 
